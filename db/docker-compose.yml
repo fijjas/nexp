@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  database:
+    environment:
+      - PORT=3306
+      - MYSQL_ROOT_PASSWORD=jD8lD8aF9gX8hF5y
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=jD8lD8aF9gX8hF5y
+      - MYSQL_DATABASE=nexp
+    image: mysql:5.7
+    expose:
+      - 3306
+    ports:
+      - "33601:3306"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "1G"
+    volumes:
+      - ./data:/var/lib/mysql
