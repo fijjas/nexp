@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "97cc51db-2077-458a-a1ba-b6ec66296bce",
+		"name": "nexp (SharpDevs)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"egorv@pm.me\",\n    \"password\": \"secret\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/auth/login",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Egorrrrr\",\n    \"lastName\": \"Vorozhtsov\",\n    \"email\": \"egorv2@pm.me\",\n    \"password\": \"logmein!\",\n    \"password2\": \"logmein!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/auth/signup",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "protected",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_url}}/users/search?keyword=Eg",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"users",
+										"search"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "Eg"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "wallet",
+					"item": [
+						{
+							"name": "wallet",
+							"item": [
+								{
+									"name": "balance",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Token",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaWF0IjoxNTE2MjM5MDIyfQ.4vf4thfGKWg3yXo6tQ7RjbLPxE2r-zZTiKZew9WWuBA",
+												"type": "default"
+											},
+											{
+												"key": "Token",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaWF0IjoxNTE2MjM5MDIyfQ.V8VULefYRUoB62XBXVaK-Vcog4diuiPXwlRLcn7KzxQ",
+												"type": "default",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/wallet/balance",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"wallet",
+												"balance"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "transactions",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								},
+								{
+									"name": "send",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"toUserId\": 5,\n    \"amount\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{api_url}}/wallet/send",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"wallet",
+												"send"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjksImlhdCI6MTY2NzE1NzA3NjEzNSwiZXhwIjoxNjY3MTU5NjY4MTM1fQ.9G5I5wBFsFe9N9il5HUGcSCFpHv0AzQZ06P8EMLWoRo",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "http://localhost:3000",
+			"type": "default"
+		}
+	]
+}

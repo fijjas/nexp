@@ -1,8 +1,10 @@
 import { DataSource } from 'typeorm';
+import { DATA_SOURCE } from './db.constants';
+import { TransactionsToUsersSubscriber } from '../wallet/transactions/transactions.subscribers';
 
 export const dbProviders = [
   {
-    provide: 'DATA_SOURCE',
+    provide: DATA_SOURCE,
     useFactory: async () => {
       const dataSource = new DataSource({
         type: 'mysql',
@@ -15,6 +17,10 @@ export const dbProviders = [
           __dirname + '/../**/*.entity{.ts,.js}',
         ],
         synchronize: true,
+        logging: true,
+        subscribers: [
+          TransactionsToUsersSubscriber,
+        ],
       });
 
       return dataSource.initialize();
