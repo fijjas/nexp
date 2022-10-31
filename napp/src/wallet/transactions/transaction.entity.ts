@@ -3,7 +3,7 @@ import { AbstractEntity } from '../../common/entities';
 
 @Entity()
 export class Transaction extends AbstractEntity {
-  @Column('int', { nullable: true })
+  @Column({ type: 'int', nullable: true })
   @Index()
   fromUserId: number|null;
 

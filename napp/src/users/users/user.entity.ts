@@ -12,10 +12,9 @@ export class User extends AbstractEntity {
   lastName: string;
 
   @Column({ length: 255, unique: true })
-  @Index()
   email: string;
 
-  @Column({ length: 255 })
+  @Column({ length: 1000 })
   @Exclude()
   password?: string;
 
